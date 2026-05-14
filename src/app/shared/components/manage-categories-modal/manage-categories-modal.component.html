@@ -1,0 +1,75 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Gestionar Categorías</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div *ngIf="isFormVisible" class="form-container">
+    <ion-list>
+      <ion-list-header>
+        <ion-label>{{ editingId ? 'Editar Categoría' : 'Nueva Categoría' }}</ion-label>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input [(ngModel)]="formName" placeholder="Nombre de la categoría"></ion-input>
+      </ion-item>
+
+    <ion-item lines="none">
+    <ion-label position="stacked">Color de la categoría</ion-label>
+    
+    <div class="color-selector">
+        <div 
+        *ngFor="let color of colorOptions"
+        class="color-dot"
+        [ngClass]="color" 
+        [class.selected]="formColor === color"
+        (click)="selectColor(color)"
+        ></div>
+    </div>
+    </ion-item>
+    </ion-list>
+
+    <ion-button expand="block" (click)="saveCategory()" class="ion-margin">
+      {{ editingId ? 'Guardar Cambios' : 'Crear Categoría' }}
+    </ion-button>
+    <ion-button expand="block" fill="outline" (click)="cancelForm()" class="ion-margin">
+      Cancelar
+    </ion-button>
+  </div>
+
+  <!-- Lista de categorías -->
+  <div *ngIf="!isFormVisible">
+    <ion-list>
+      <ion-list-header>
+        <ion-label>Categorías Disponibles</ion-label>
+      </ion-list-header>
+
+      <ion-item-sliding *ngFor="let category of (todoService.categories$ | async)">
+        <ion-item>
+          <ion-icon [name]="'square'" [color]="category.color" slot="start"></ion-icon>
+          <ion-label>{{ category.name }}</ion-label>
+        </ion-item>
+
+        <ion-item-options side="end">
+          <ion-item-option (click)="startEdit(category)">
+            <ion-icon name="pencil"></ion-icon>
+          </ion-item-option>
+          <ion-item-option color="danger" (click)="confirmDelete(category.id)">
+            <ion-icon name="trash"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button (click)="startAdd()">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </div>
+</ion-content>

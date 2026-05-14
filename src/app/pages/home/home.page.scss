@@ -1,0 +1,141 @@
+@import '../../../theme/variables';
+
+$ds-border-radius: 12px;
+$ds-padding-base: 16px;
+
+ion-content {
+  --background: #{$light};
+}
+
+.filter-section {
+  padding: $ds-padding-base;
+  margin-bottom: 8px;
+
+  ion-item {
+    --background: #{$light};
+    --border-radius: #{$ds-border-radius - 2px};
+    margin: 0;
+    padding: 0 12px;
+    transition: all 0.3s ease;
+
+    &:focus-within {
+      --border-color: #{$primary};
+      box-shadow: 0 0 0 3px rgba($primary, 0.1);
+    }
+
+    ion-label {
+      color: #{$primary};
+      font-weight: 600;
+      font-size: 14px;
+    }
+  }
+
+  ion-select {
+    --color: #{$dark};
+    --placeholder-color: #{$medium};
+    font-weight: 500;
+
+    &::part(text) {
+      color: #{$dark};
+    }
+  }
+}
+
+
+ion-item-sliding {
+  --background: transparent;
+  background: transparent;
+  margin: 8px 8px;
+  padding: 0;
+  border: none;
+
+  ion-item-options {
+    --background: transparent;
+    background: transparent;
+  }
+
+  ion-item-option {
+    ion-icon {
+      color: #{$light};
+    }
+  }
+}
+
+.task-item {
+  --border-radius: #{$ds-border-radius};
+  --background: #{$light};
+  --border-color: #{$border-light};
+  --border-style: solid;
+  --border-width: 1px;
+
+  padding: 14px $ds-padding-base 14px 24px;
+  box-shadow: 0 2px 6px rgba($dark, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    --background: #{$bg-hover};
+    --border-color: #{$border-medium};
+    box-shadow: 0 4px 12px rgba($dark, 0.1);
+    transform: translateX(4px);
+  }
+
+  &.completed {
+    opacity: 0.7;
+    --background: #{$bg-completed};
+
+    h2 {
+      text-decoration: line-through;
+      color: #{$medium};
+    }
+  }
+
+  ion-label {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-left: 12px;
+
+    h2 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+      color: #{$dark};
+      transition: all 0.3s ease;
+    }
+
+    &:hover h2 {
+      color: #{$primary};
+    }
+  }
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  ion-icon {
+    font-size: 80px;
+    color: #{$border-medium};
+    margin-bottom: $ds-padding-base;
+    opacity: 0.7;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #{$dark};
+    margin-bottom: 8px;
+  }
+
+  p {
+    color: #{$medium};
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+}
+

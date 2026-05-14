@@ -1,0 +1,23 @@
+@import "../variables";
+
+ion-fab-button {
+  --color: #{$light} !important;
+
+  ion-icon {
+    color: #{$light} !important;
+    --color: #{$light} !important;
+  }
+
+  --box-shadow: 0 4px 12px rgba(94, 58, 238, 0.4);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+
+  &:hover {
+    --box-shadow: 0 8px 20px rgba(94, 58, 238, 0.5);
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}

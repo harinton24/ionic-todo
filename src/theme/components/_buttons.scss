@@ -1,0 +1,43 @@
+@import "../variables";
+
+ion-button {
+  &:not([fill="outline"]):not([fill="clear"]) {
+    --color: #{$light} !important;
+    color: #{$light} !important;
+
+    &::part(native) {
+      color: #{$light} !important;
+    }
+  }
+
+  &[fill="outline"] {
+    --color: #{$primary} !important;
+    color: #{$primary} !important;
+    --border-color: #{$primary} !important;
+
+    &::part(native) {
+      color: #{$primary} !important;
+    }
+    
+    &:hover {
+      --background: rgba(var(--ion-color-primary-rgb), 0.1);
+      box-shadow: none;
+    }
+  }
+
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-radius: 8px;
+  --border-radius: 8px;
+  transition: all 0.3s ease;
+
+  &.md {
+    --padding-start: 20px;
+    --padding-end: 20px;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(94, 58, 238, 0.3);
+  }
+}

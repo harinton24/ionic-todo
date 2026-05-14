@@ -1,0 +1,51 @@
+@import '../../../../theme/variables';
+
+$ds-border-radius-main: 12px;
+$ds-padding-standard: 16px;
+
+ion-content {
+  --background: #{$light};
+}
+
+ion-list {
+  padding: $ds-padding-standard;
+}
+
+.form-container {
+  background: transparent;
+  padding: $ds-padding-standard;
+
+  .color-selector {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    padding: 12px 0 12px 10px;
+    margin-top: 5px;
+
+    .color-dot {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 3px solid #{$light};
+      transition: all 0.25s ease;
+      box-shadow: 0 2px 6px rgba($dark, 0.08);
+
+      &.primary { background-color: #{$primary}; }
+      &.secondary { background-color: #{$secondary}; }
+      &.success { background-color: #{$success}; }
+      &.warning { background-color: #{$warning}; }
+      &.danger { background-color: #{$danger}; }
+
+      &.selected {
+        transform: scale(1.15);
+        border-color: #{$medium};
+        box-shadow: 0 4px 12px rgba($dark, 0.15);
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+  }
+}

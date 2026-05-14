@@ -1,0 +1,23 @@
+@import '../variables';
+
+ion-item {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --border-radius: 8px;
+  --background: transparent;
+
+  &.task-item {
+    --padding-top: 12px;
+    --padding-bottom: 12px;
+    border-radius: 8px;
+    margin: 8px 12px;
+    background: white;
+    border: 1px solid #{$border-light};
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: #{$bg-hover};
+      border-color: $primary-light;
+    }
+  }
+}

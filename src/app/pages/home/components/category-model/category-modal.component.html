@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Nueva Tarea</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Cancelar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="none">
+    <ion-item class="input-item">
+      <ion-label position="stacked">¿Qué hay que hacer?</ion-label>
+      <ion-input [(ngModel)]="title" placeholder="Ej. Comprar leche"></ion-input>
+    </ion-item>
+
+    <ion-item class="input-item">
+      <ion-label position="stacked">Categoría</ion-label>
+      <ion-select 
+        [(ngModel)]="selectedCategory" 
+        interface="action-sheet" 
+        placeholder="Selecciona una"
+        cancelText="Cancelar"
+      >
+        <ion-select-option *ngFor="let cat of todoService.categories" [value]="cat.id">
+          {{ cat.name }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <div class="button-container">
+    <ion-button expand="block" (click)="save()" shape="round">
+      GUARDAR
+    </ion-button>
+  </div>
+</ion-content>

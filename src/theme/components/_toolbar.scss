@@ -1,0 +1,45 @@
+@import '../variables';
+
+ion-toolbar {
+  --color: #{$light}; 
+  --background: #{$primary}; 
+  
+  --padding-top: 0px;
+  --padding-bottom: 0px; 
+  --min-height: 56px;   
+  padding-top: 0px;     
+
+  ion-title {
+    color: #{$light};
+    font-weight: 600;
+    margin-left: 8px; 
+    font-size: 1.1rem; 
+  }
+
+  ion-back-button {
+    --color: #{$light} !important;
+    --icon-color: #{$light} !important;
+    color: #{$light} !important;
+
+    &:hover {
+      transform: translateX(-2px);
+    }
+    &::part(icon) {
+      color: #{$light};
+    }
+  }
+
+  ion-buttons {
+    gap: 8px;
+    
+    ion-button {
+      --color: #{$light};
+      font-weight: 500;
+
+      ion-icon {
+        color: #{$light};
+        font-size: 24px;
+      }
+    }
+  }
+}

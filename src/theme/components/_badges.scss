@@ -1,0 +1,22 @@
+@import "../variables";
+
+ion-badge {
+  --color: #{$light} !important;
+  color: #{$light} !important;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
+  width: fit-content;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 4px rgba($dark, 0.1);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba($dark, 0.15);
+  }
+}

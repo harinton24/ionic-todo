@@ -1,0 +1,33 @@
+@import "../variables";
+
+ion-list {
+  background: transparent !important;
+  padding: 0;
+
+  ion-list-header {
+    --color: #{$medium};
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  ion-item {
+    --background: transparent !important;
+
+    --border-style: none;
+    color: #{$dark};
+
+    &.ion-activated {
+      --background: #{$bg-hover} !important;
+    }
+
+    ion-input {
+      --color: #{$dark} !important;
+      color: #{$dark} !important;
+      --placeholder-color: #{$gray-400};
+      font-size: 1rem;
+      font-weight: 500;
+      --padding-start: 8px;
+    }
+  }
+}

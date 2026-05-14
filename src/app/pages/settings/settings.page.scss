@@ -1,0 +1,9 @@
+@import '../../../theme/variables';
+
+$ds-border-radius-item: 10px;
+$ds-border-radius-group: 12px;
+$ds-spacing-unit: 8px;
+
+ion-content {
+  --background: #{$light};
+}

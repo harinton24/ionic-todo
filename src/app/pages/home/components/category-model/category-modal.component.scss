@@ -1,0 +1,17 @@
+@import '../../../../../theme/variables';
+
+$border-radius-custom: 12px;
+$padding-standard: 16px;
+
+ion-content {
+  --background: #{$light};
+}
+
+ion-list {
+  padding: $padding-standard;
+}
+
+.button-container {
+  margin-top: 32px;
+  padding: 0 20px 20px 20px;
+}
