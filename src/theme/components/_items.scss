@@ -11,7 +11,7 @@ ion-item {
     --padding-bottom: 12px;
     border-radius: 8px;
     margin: 8px 12px;
-    background: white;
+    background: #{$light};
     border: 1px solid #{$border-light};
     transition: all 0.3s ease;
 
@@ -19,5 +19,12 @@ ion-item {
       background: #{$bg-hover};
       border-color: $primary-light;
     }
+  }
+}
+
+ion-item-option {
+  ion-icon {
+    color: #{$light} !important; 
+    font-size: 1.4rem;
   }
 }

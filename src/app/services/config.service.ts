@@ -1,12 +1,14 @@
 import { inject, Injectable } from '@angular/core';
 import { RemoteConfig, getValue, fetchAndActivate } from '@angular/fire/remote-config';
 import { BehaviorSubject } from 'rxjs';
+import { ErrorHandlerService } from './error-handler.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConfigService {
   private remoteConfig = inject(RemoteConfig);
+  private errorHandler = inject(ErrorHandlerService);
   
   private _showDeleteAll = new BehaviorSubject<boolean>(false);
   public showDeleteAll$ = this._showDeleteAll.asObservable();
@@ -24,7 +26,7 @@ export class ConfigService {
       this._showDeleteAll.next(canDelete);
       return canDelete;
     } catch (err) {
-      console.error('Error al sincronizar con Remote Config:', err);
+      await this.errorHandler.showWarningToast('No se pudo sincronizar Remote Config');
       return this._showDeleteAll.value;
     }
   }

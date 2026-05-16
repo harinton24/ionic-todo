@@ -1,0 +1,56 @@
+@keyframes slideInOptions {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutOptions {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+@keyframes buttonPopIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+ion-item-sliding {
+  ion-item-options {
+    animation: slideInOptions 0.3s ease-out forwards;
+    
+    ion-item-option {
+      animation: buttonPopIn 0.3s ease-out forwards;
+      
+      &:nth-child(1) {
+        animation-delay: 0.05s;
+      }
+      
+      &:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+    }
+  }
+
+  &.sliding {
+    ion-item-options {
+      animation: slideOutOptions 0.3s ease-in forwards;
+    }
+  }
+}

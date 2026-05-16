@@ -3,7 +3,7 @@ import { TodoService } from 'src/app/services/todo.service';
 
 @Pipe({
   name: 'categoryName',
-  pure: true,
+  pure: false,
   standalone: true
 })
 export class CategoryNamePipe implements PipeTransform {
@@ -19,7 +19,7 @@ export class CategoryNamePipe implements PipeTransform {
 
 @Pipe({
   name: 'categoryColor',
-  pure: true,
+  pure: false,
   standalone: true
 })
 export class CategoryColorPipe implements PipeTransform {

@@ -1,9 +1,12 @@
 @import '../../../theme/variables';
 
-$ds-border-radius-item: 10px;
-$ds-border-radius-group: 12px;
-$ds-spacing-unit: 8px;
+$ds-padding-standard: 16px;
+
 
 ion-content {
   --background: #{$light};
+}
+
+.form-container {
+  padding: $ds-padding-standard;
 }

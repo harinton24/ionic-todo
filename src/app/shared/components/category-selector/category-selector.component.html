@@ -1,0 +1,20 @@
+<ion-item lines="none">
+  <ion-select
+    [label]="label()"
+    interface="action-sheet"
+    placeholder="Todas las categorías"
+    [value]="selectedCategoryId()"
+    (ionChange)="onCategoryChange($event)"
+  >
+    @if (showAllOption()) {
+      <ion-select-option value="all">
+        Todas las categorías
+      </ion-select-option>
+    }
+    @for (category of categories(); track category.id) {
+      <ion-select-option [value]="category.id">
+        {{ category.name }}
+      </ion-select-option>
+    }
+  </ion-select>
+</ion-item>

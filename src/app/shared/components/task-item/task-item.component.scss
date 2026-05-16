@@ -1,0 +1,73 @@
+@import '../../../../theme/variables';
+@import '../../../../theme/sliding-animations';
+
+$ds-border-radius: 12px;
+$ds-padding-base: 16px;
+
+ion-item-sliding {
+  --background: transparent;
+  background: transparent;
+  margin: 8px 8px;
+  padding: 0;
+  border: none;
+
+  ion-item-options {
+    --background: transparent;
+    background: transparent;
+  }
+
+  ion-item-option {
+    ion-icon {
+      color: var(--ion-color-light);
+    }
+  }
+}
+
+.task-item {
+  --border-radius: #{$ds-border-radius};
+  --background: #{$light};
+  --border-color: #{$border-light};
+  --border-style: solid;
+  --border-width: 1px;
+
+  padding: 14px $ds-padding-base 14px 24px;
+  box-shadow: 0 2px 6px rgba($dark, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    --background: #{$bg-hover};
+    --border-color: #{$border-medium};
+    box-shadow: 0 4px 12px rgba($dark, 0.1);
+    transform: translateX(4px);
+  }
+
+  &.completed {
+    opacity: 0.7;
+    --background: #{$bg-completed};
+
+    h2 {
+      text-decoration: line-through;
+      color: #{$medium};
+    }
+  }
+
+  ion-label {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-left: 12px;
+
+    h2 {
+      margin: 0;
+      font-weight: 600;
+      font-size: 16px;
+      color: #{$dark};
+    }
+
+    ion-badge {
+      width: fit-content;
+      font-size: 11px;
+    }
+  }
+}
