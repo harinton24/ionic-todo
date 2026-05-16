@@ -1,5 +1,4 @@
-import { Component, inject } from '@angular/core';
-import { ModalController } from '@ionic/angular/standalone';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
@@ -19,18 +18,20 @@ import {
   IonItemOption,
   IonFab,
   IonFabButton,
-  IonInput
+  IonInput,
+  ModalController
 } from '@ionic/angular/standalone';
 import { TodoService } from 'src/app/services/todo.service';
 import { Category } from 'src/app/models/task.model';
 import { addIcons } from 'ionicons';
-import { add, pencil, trash, square } from 'ionicons/icons';
+import { add, pencil, trash } from 'ionicons/icons';
 
 @Component({
   selector: 'app-manage-categories-modal',
   templateUrl: './manage-categories-modal.component.html',
   styleUrls: ['./manage-categories-modal.component.scss'],
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
     FormsModule,
@@ -65,7 +66,7 @@ export class ManageCategoriesModalComponent {
   editingId: string | null = null;
 
   constructor() {
-    addIcons({ add, pencil, trash, square });
+    addIcons({ add, pencil, trash});
   }
 
   selectColor(color: string) {
@@ -124,17 +125,22 @@ export class ManageCategoriesModalComponent {
     }
 
     this.cancelForm();
+    this.dismiss();
   }
 
   async confirmDelete(id: string) {
-    try {
-      await this.todoService.deleteCategory(id);
-    } catch (error) {
-      alert('No se puede eliminar una categoría que tiene tareas asignadas.');
-    }
+    await this.todoService.deleteCategory(id);
   }
 
   dismiss() {
     this.modalController.dismiss();
+  }
+
+  trackByColorId(index: number, color: string): string {
+    return color;
+  }
+
+  trackByCategoryId(index: number, category: Category): string {
+    return category.id;
   }
 }
