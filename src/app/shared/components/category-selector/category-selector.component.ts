@@ -1,0 +1,43 @@
+import { Component, ChangeDetectionStrategy, input, output } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {
+  IonItem,
+  IonLabel,
+  IonSelect,
+  IonSelectOption,
+  IonIcon,
+} from '@ionic/angular/standalone';
+import { Category } from '../../../models/task.model';
+
+@Component({
+  selector: 'app-category-selector',
+  templateUrl: './category-selector.component.html',
+  styleUrls: ['./category-selector.component.scss'],
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    CommonModule,
+    IonItem,
+    IonLabel,
+    IonSelect,
+    IonSelectOption,
+    IonIcon,
+  ],
+})
+export class CategorySelectorComponent {
+  categories = input<Category[]>([]);
+  selectedCategoryId = input<string>('all');
+  showAllOption = input<boolean>(true);
+  label = input<string>('Filtrar por categoría:');
+
+  selectionChange = output<string>();
+
+  trackByCategoryId(index: number, category: Category): string {
+    return category.id;
+  }
+
+  onCategoryChange(event: any) {
+    // 3. El output se sigue emitiendo usando .emit()
+    this.selectionChange.emit(event.detail.value);
+  }
+}

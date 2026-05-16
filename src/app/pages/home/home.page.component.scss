@@ -1,0 +1,44 @@
+@import '../../../theme/variables';
+
+$ds-padding-base: 16px;
+
+ion-content {
+  --background: #{$light};
+}
+
+.filter-section {
+  padding: $ds-padding-base;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center; 
+  justify-content: space-between; 
+
+  app-category-selector {
+    width: 100%;
+  }
+}
+
+.custom-spinner-container {
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+
+  ion-spinner {
+    width: 35px;
+    height: 35px;
+    --color: #{$primary} !important;
+    color: #{$primary} !important;
+  }
+
+  .refreshing-text {
+    margin-top: 8px;
+    color: #{$primary};
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+}

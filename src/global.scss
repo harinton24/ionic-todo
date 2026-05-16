@@ -10,15 +10,14 @@
  */
 
 // Import theme variables
-@import 'theme/_variables';
-@import './theme/components/toolbar';
-@import './theme/components/lists';
-@import './theme/components/badges';
-@import './theme/components/fabs';
-@import './theme/components/checkboxes';
-@import './theme/components/buttons';
-@import './theme/components/items';
-
+@import "theme/_variables";
+@import "./theme/components/toolbar";
+@import "./theme/components/lists";
+@import "./theme/components/badges";
+@import "./theme/components/fabs";
+@import "./theme/components/checkboxes";
+@import "./theme/components/buttons";
+@import "./theme/components/items";
 
 /* Core CSS required for Ionic components to work properly */
 @import "@ionic/angular/css/core.css";
@@ -45,7 +44,7 @@
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
+@import "@ionic/angular/css/palettes/dark.system.css";
 
 * {
   margin: 0;
@@ -55,7 +54,15 @@
 
 html,
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(135deg, #{$light} 0%, #{$gray-200} 100%);
   color: $dark;
+}
+
+ion-toast::part(message) {
+  color: #ffffff !important;
+}
+
+ion-header.header-md ion-toolbar:first-child {
+  padding-top: 0;
 }

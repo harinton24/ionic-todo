@@ -1,0 +1,36 @@
+@import "../../../../theme/variables";
+
+$ds-border-radius: 12px;
+$ds-padding-base: 16px;
+
+ion-item {
+  --background: #{$light};
+  --border-radius: #{$ds-border-radius - 2px};
+  margin: 0;
+  padding: 0 12px;
+  transition: all 0.3s ease;
+
+  &:focus-within {
+    --border-color: var(--ion-color-primary);
+    box-shadow: 0 0 0 3px rgba(var(--ion-color-primary-rgb), 0.1);
+  }
+  p {
+    color: #{$medium};
+  }
+  ion-label {
+    color: #{$primary};
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  ion-select {
+    &::part(text) {
+      color: #{$medium};
+      font-size: 12px;
+    }
+
+    &::part(label) {
+      color: #{$primary} !important;
+    }
+  }
+}

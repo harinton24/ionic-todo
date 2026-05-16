@@ -1,19 +1,20 @@
 @import '../../../../theme/variables';
+@import '../../../../theme/sliding-animations';
 
-$ds-border-radius-main: 12px;
-$ds-padding-standard: 16px;
+$ds-border-radius: 12px;
+$ds-padding-base: 16px;
 
 ion-content {
   --background: #{$light};
 }
 
 ion-list {
-  padding: $ds-padding-standard;
+  padding: $ds-padding-base;
 }
 
 .form-container {
   background: transparent;
-  padding: $ds-padding-standard;
+  padding: $ds-padding-base;
 
   .color-selector {
     display: flex;
@@ -45,6 +46,96 @@ ion-list {
 
       &:active {
         transform: scale(0.95);
+      }
+    }
+  }
+}
+
+.categories-container {
+  padding: 0;
+
+  .categories-header {
+    padding: $ds-padding-base;
+    margin-bottom: 8px;
+
+    .header-label {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 600;
+      color: #{$primary};
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  .categories-list {
+    padding: 0;
+
+    ::ng-deep ion-item-sliding {
+      --background: transparent;
+      background: transparent;
+      margin: 8px 8px;
+      padding: 0;
+      border: none;
+
+      ion-item-options {
+        --background: transparent;
+        background: transparent;
+      }
+
+      ion-item-option {
+        ion-icon {
+          color: #{$light};
+        }
+      }
+    }
+
+    .category-item {
+      --border-radius: #{$ds-border-radius};
+      --background: #{$light};
+      --border-color: #{$border-light};
+      --border-style: solid;
+      --border-width: 1px;
+
+      padding: 14px $ds-padding-base 14px 24px;
+      box-shadow: 0 2px 6px rgba($dark, 0.06);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+      &:hover {
+        --background: #{$bg-hover};
+        --border-color: #{$border-medium};
+        box-shadow: 0 4px 12px rgba($dark, 0.1);
+        transform: translateX(4px);
+      }
+
+      .category-color-dot {
+        width: 24px;
+        height: 24px;
+        border-radius: 6px;
+        flex-shrink: 0;
+        box-shadow: 0 2px 6px rgba($dark, 0.12);
+      }
+
+      ion-label {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        margin-left: 12px;
+
+        h2 {
+          margin: 0;
+          font-size: 14px;
+          font-weight: 600;
+          color: #{$dark};
+        }
+
+        .color-label {
+          margin: 0;
+          font-size: 12px;
+          color: #{$medium};
+          text-transform: capitalize;
+        }
       }
     }
   }

@@ -1,0 +1,21 @@
+<ion-item-sliding #slidingItem [disabled]="!canDelete()">
+  <ion-item class="task-item" [class.completed]="task().completed">
+    <ion-label>
+      <h2>{{ task().title }}</h2>
+      <ion-badge [color]="task().categoryId | categoryColor" mode="ios">
+        {{ task().categoryId | categoryName }}
+      </ion-badge>
+    </ion-label>
+    <ion-checkbox
+      slot="end"
+      [checked]="task().completed"
+      (ionChange)="onToggle()"
+    >
+    </ion-checkbox>
+  </ion-item>
+  <ion-item-options side="end">
+    <ion-item-option color="danger" (click)="onDelete(slidingItem)">
+      <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+    </ion-item-option>
+  </ion-item-options>
+</ion-item-sliding>
