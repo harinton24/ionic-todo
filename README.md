@@ -1,4 +1,4 @@
-**Ionic Todo — App de ejemplo**
+**FLOW APP**
 
 Pequeña aplicación de tareas construida con Ionic + Angular (standalone), pensada para evaluación técnica.
 
