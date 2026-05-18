@@ -2,10 +2,8 @@ import { Component, ChangeDetectionStrategy, input, output } from '@angular/core
 import { CommonModule } from '@angular/common';
 import {
   IonItem,
-  IonLabel,
   IonSelect,
-  IonSelectOption,
-  IonIcon,
+  IonSelectOption
 } from '@ionic/angular/standalone';
 import { Category } from '../../../models/task.model';
 
@@ -18,10 +16,8 @@ import { Category } from '../../../models/task.model';
   imports: [
     CommonModule,
     IonItem,
-    IonLabel,
     IonSelect,
-    IonSelectOption,
-    IonIcon,
+    IonSelectOption
   ],
 })
 export class CategorySelectorComponent {
@@ -37,7 +33,6 @@ export class CategorySelectorComponent {
   }
 
   onCategoryChange(event: any) {
-    // 3. El output se sigue emitiendo usando .emit()
     this.selectionChange.emit(event.detail.value);
   }
 }

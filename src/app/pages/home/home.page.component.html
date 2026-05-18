@@ -13,7 +13,7 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" [scrollY]="false">
   <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
     <ion-refresher-content
       pullingIcon="chevron-down-circle-outline"
@@ -34,26 +34,33 @@
       (selectionChange)="onCategoryFilterChange($event)"
     ></app-category-selector>
   </div>
-  @if (tasks$ | async; as tasks) {
-    @if (tasks.length === 0) {
-      <app-empty-state
-        icon="checkbox-outline"
-        title="Sin tareas"
-        message="Crea tu primera tarea para comenzar"
-      ></app-empty-state>
-    } @else {
-      <ion-list lines="none">
-        @for (task of tasks; track task.id) {
-          <app-task-item
-            [task]="task"
-            [canDelete]="(showDelete$ | async) || false"
-            (toggleTask)="toggleTask($event)"
-            (deleteTask)="onDeleteTask($event)"
-          ></app-task-item>
-        }
-      </ion-list>
+  <cdk-virtual-scroll-viewport
+    class="ion-content-scroll-host"
+    itemSize="105"
+    minBufferPx="900"
+    maxBufferPx="1350"
+  >
+    @if (tasks$ | async; as tasks) {
+      @if (tasks.length === 0) {
+        <app-empty-state
+          icon="checkbox-outline"
+          title="Sin tareas"
+          message="Crea tu primera tarea para comenzar"
+        ></app-empty-state>
+      } @else {
+        <ion-list lines="none">
+          @for (task of tasks; track task.id) {
+            <app-task-item
+              [task]="task"
+              [canDelete]="(showDelete$ | async) || false"
+              (toggleTask)="toggleTask($event)"
+              (deleteTask)="onDeleteTask($event)"
+            ></app-task-item>
+          }
+        </ion-list>
+      }
     }
-  }
+  </cdk-virtual-scroll-viewport>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button (click)="presentAlert()">
       <ion-icon name="add"></ion-icon>

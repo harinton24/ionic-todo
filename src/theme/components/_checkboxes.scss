@@ -1,20 +1,20 @@
-@import '../variables';
+@use '../variables' as theme;
 
 ion-checkbox {
-  --background: #{$light} !important;
-  --border-color: #{$border-medium} !important;
+  --background: #{theme.$light} !important;
+  --border-color: #{theme.$border-medium} !important;
 
   &::part(container) {
-    background: #{$light} !important;
-    border: 1px solid #{$border-medium};
+    background: #{theme.$light} !important;
+    border: 1px solid #{theme.$border-medium};
   }
 
   &.checkbox-checked {
     &::part(container) {
-      background: #{$primary} !important;
-      border-color: #{$primary} !important;
+      background: #{theme.$primary} !important;
+      border-color: #{theme.$primary} !important;
     }
   }
 
-  --checkmark-color: #{$light} !important;
+  --checkmark-color: #{theme.$light} !important;
 }

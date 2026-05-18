@@ -1,4 +1,4 @@
-@import '../../../../theme/variables';
+@use '../../../../theme/variables' as theme;
 
 .empty-state {
   display: flex;

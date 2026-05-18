@@ -1,22 +1,22 @@
-@import "../variables";
+@use "../variables" as theme;
 
 ion-button {
   &:not([fill="outline"]):not([fill="clear"]) {
-    --color: #{$light} !important;
-    color: #{$light} !important;
+    --color: #{theme.$light} !important;
+    color: #{theme.$light} !important;
 
     &::part(native) {
-      color: #{$light} !important;
+      color: #{theme.$light} !important;
     }
   }
 
   &[fill="outline"] {
-    --color: #{$primary} !important;
-    color: #{$primary} !important;
-    --border-color: #{$primary} !important;
+    --color: #{theme.$primary} !important;
+    color: #{theme.$primary} !important;
+    --border-color: #{theme.$primary} !important;
 
     &::part(native) {
-      color: #{$primary} !important;
+      color: #{theme.$primary} !important;
     }
     
     &:hover {

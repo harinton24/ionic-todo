@@ -1,11 +1,11 @@
-@import '../../../../theme/variables';
-@import '../../../../theme/sliding-animations';
+@use '../../../../theme/variables' as theme;
+@use '../../../../theme/sliding-animations' as sliding;
 
 $ds-border-radius: 12px;
 $ds-padding-base: 16px;
 
 ion-content {
-  --background: #{$light};
+  --background: #{theme.$light};
 }
 
 ion-list {
@@ -28,20 +28,20 @@ ion-list {
       height: 38px;
       border-radius: 50%;
       cursor: pointer;
-      border: 3px solid #{$light};
+      border: 3px solid #{theme.$light};
       transition: all 0.25s ease;
-      box-shadow: 0 2px 6px rgba($dark, 0.08);
+      box-shadow: 0 2px 6px rgba(theme.$dark, 0.08);
 
-      &.primary { background-color: #{$primary}; }
-      &.secondary { background-color: #{$secondary}; }
-      &.success { background-color: #{$success}; }
-      &.warning { background-color: #{$warning}; }
-      &.danger { background-color: #{$danger}; }
+      &.primary { background-color: #{theme.$primary}; }
+      &.secondary { background-color: #{theme.$secondary}; }
+      &.success { background-color: #{theme.$success}; }
+      &.warning { background-color: #{theme.$warning}; }
+      &.danger { background-color: #{theme.$danger}; }
 
       &.selected {
         transform: scale(1.15);
-        border-color: #{$medium};
-        box-shadow: 0 4px 12px rgba($dark, 0.15);
+        border-color: #{theme.$medium};
+        box-shadow: 0 4px 12px rgba(theme.$dark, 0.15);
       }
 
       &:active {
@@ -62,7 +62,7 @@ ion-list {
       margin: 0;
       font-size: 14px;
       font-weight: 600;
-      color: #{$primary};
+      color: #{theme.$primary};
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
@@ -85,26 +85,26 @@ ion-list {
 
       ion-item-option {
         ion-icon {
-          color: #{$light};
+          color: #{theme.$light};
         }
       }
     }
 
     .category-item {
       --border-radius: #{$ds-border-radius};
-      --background: #{$light};
-      --border-color: #{$border-light};
+      --background: #{theme.$light};
+      --border-color: #{theme.$border-light};
       --border-style: solid;
       --border-width: 1px;
 
       padding: 14px $ds-padding-base 14px 24px;
-      box-shadow: 0 2px 6px rgba($dark, 0.06);
+      box-shadow: 0 2px 6px rgba(theme.$dark, 0.06);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
       &:hover {
-        --background: #{$bg-hover};
-        --border-color: #{$border-medium};
-        box-shadow: 0 4px 12px rgba($dark, 0.1);
+        --background: #{theme.$bg-hover};
+        --border-color: #{theme.$border-medium};
+        box-shadow: 0 4px 12px rgba(theme.$dark, 0.1);
         transform: translateX(4px);
       }
 
@@ -113,7 +113,7 @@ ion-list {
         height: 24px;
         border-radius: 6px;
         flex-shrink: 0;
-        box-shadow: 0 2px 6px rgba($dark, 0.12);
+        box-shadow: 0 2px 6px rgba(theme.$dark, 0.12);
       }
 
       ion-label {
@@ -127,13 +127,13 @@ ion-list {
           margin: 0;
           font-size: 14px;
           font-weight: 600;
-          color: #{$dark};
+          color: #{theme.$dark};
         }
 
         .color-label {
           margin: 0;
           font-size: 12px;
-          color: #{$medium};
+          color: #{theme.$medium};
           text-transform: capitalize;
         }
       }
