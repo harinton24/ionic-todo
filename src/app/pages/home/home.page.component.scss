@@ -8,7 +8,7 @@ ion-content {
 }
 
 cdk-virtual-scroll-viewport {
-  height: calc(100% - 100px);
+  height: 100%;
   width: 100%;
 
   &::-webkit-scrollbar {

@@ -27,19 +27,19 @@
       </div>
     </ion-refresher-content>
   </ion-refresher>
-  <div class="filter-section">
-    <app-category-selector
-      [categories]="(categories$ | async) || []"
-      [selectedCategoryId]="'all'"
-      (selectionChange)="onCategoryFilterChange($event)"
-    ></app-category-selector>
-  </div>
   <cdk-virtual-scroll-viewport
     class="ion-content-scroll-host"
     itemSize="105"
     minBufferPx="900"
     maxBufferPx="1350"
   >
+    <div class="filter-section">
+      <app-category-selector
+        [categories]="(categories$ | async) || []"
+        [selectedCategoryId]="'all'"
+        (selectionChange)="onCategoryFilterChange($event)"
+      ></app-category-selector>
+    </div>
     @if (tasks$ | async; as tasks) {
       @if (tasks.length === 0) {
         <app-empty-state
