@@ -1,11 +1,11 @@
-@import "../variables";
+@use "../variables" as theme;
 
 ion-fab-button {
-  --color: #{$light} !important;
+  --color: #{theme.$light} !important;
 
   ion-icon {
-    color: #{$light} !important;
-    --color: #{$light} !important;
+    color: #{theme.$light} !important;
+    --color: #{theme.$light} !important;
   }
 
   --box-shadow: 0 4px 12px rgba(94, 58, 238, 0.4);

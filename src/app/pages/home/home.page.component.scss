@@ -1,9 +1,32 @@
-@import '../../../theme/variables';
+@use '../../../theme/variables' as theme;
+@use 'sass:color';
 
 $ds-padding-base: 16px;
 
 ion-content {
-  --background: #{$light};
+  --background: #{theme.$light};
+}
+
+cdk-virtual-scroll-viewport {
+  height: calc(100% - 100px);
+  width: 100%;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #{theme.$primary};
+    border-radius: 3px;
+
+    &:hover {
+      background: color.adjust(theme.$primary, $lightness: -10%);
+    }
+  }
 }
 
 .filter-section {
@@ -29,13 +52,13 @@ ion-content {
   ion-spinner {
     width: 35px;
     height: 35px;
-    --color: #{$primary} !important;
-    color: #{$primary} !important;
+    --color: #{theme.$primary} !important;
+    color: #{theme.$primary} !important;
   }
 
   .refreshing-text {
     margin-top: 8px;
-    color: #{$primary};
+    color: #{theme.$primary};
     font-weight: 600;
     font-size: 14px;
     text-transform: uppercase;

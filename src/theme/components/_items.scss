@@ -1,4 +1,4 @@
-@import '../variables';
+@use '../variables' as theme;
 
 ion-item {
   --padding-start: 16px;
@@ -11,20 +11,20 @@ ion-item {
     --padding-bottom: 12px;
     border-radius: 8px;
     margin: 8px 12px;
-    background: #{$light};
-    border: 1px solid #{$border-light};
+    background: #{theme.$light};
+    border: 1px solid #{theme.$border-light};
     transition: all 0.3s ease;
 
     &:hover {
-      background: #{$bg-hover};
-      border-color: $primary-light;
+      background: #{theme.$bg-hover};
+      border-color: theme.$primary-light;
     }
   }
 }
 
 ion-item-option {
   ion-icon {
-    color: #{$light} !important; 
+    color: #{theme.$light} !important; 
     font-size: 1.4rem;
   }
 }

@@ -1,5 +1,5 @@
-@import '../../../../theme/variables';
-@import '../../../../theme/sliding-animations';
+@use '../../../../theme/variables' as theme;
+@use '../../../../theme/sliding-animations' as sliding;
 
 $ds-border-radius: 12px;
 $ds-padding-base: 16px;
@@ -25,29 +25,29 @@ ion-item-sliding {
 
 .task-item {
   --border-radius: #{$ds-border-radius};
-  --background: #{$light};
-  --border-color: #{$border-light};
+  --background: #{theme.$light};
+  --border-color: #{theme.$border-light};
   --border-style: solid;
   --border-width: 1px;
 
   padding: 14px $ds-padding-base 14px 24px;
-  box-shadow: 0 2px 6px rgba($dark, 0.06);
+  box-shadow: 0 2px 6px rgba(theme.$dark, 0.06);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
-    --background: #{$bg-hover};
-    --border-color: #{$border-medium};
-    box-shadow: 0 4px 12px rgba($dark, 0.1);
+    --background: #{theme.$bg-hover};
+    --border-color: #{theme.$border-medium};
+    box-shadow: 0 4px 12px rgba(theme.$dark, 0.1);
     transform: translateX(4px);
   }
 
   &.completed {
     opacity: 0.7;
-    --background: #{$bg-completed};
+    --background: #{theme.$bg-completed};
 
     h2 {
       text-decoration: line-through;
-      color: #{$medium};
+      color: #{theme.$medium};
     }
   }
 
@@ -62,7 +62,7 @@ ion-item-sliding {
       margin: 0;
       font-weight: 600;
       font-size: 16px;
-      color: #{$dark};
+      color: #{theme.$dark};
     }
 
     ion-badge {

@@ -14,6 +14,7 @@ import {
   IonButton,
   ModalController,
   IonRefresher, IonRefresherContent, IonSpinner } from '@ionic/angular/standalone';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 import { CommonModule } from '@angular/common';
 import { TodoService } from '../../services/todo.service';
 import { ErrorHandlerService } from '../../services/error-handler.service';
@@ -47,6 +48,7 @@ import { CategorySelectorComponent } from '../../shared/components/category-sele
     IonIcon,
     IonButtons,
     IonButton,
+    ScrollingModule,
     TaskItemComponent,
     EmptyStateComponent,
     CategorySelectorComponent,

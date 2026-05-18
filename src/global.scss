@@ -10,14 +10,14 @@
  */
 
 // Import theme variables
-@import "theme/_variables";
-@import "./theme/components/toolbar";
-@import "./theme/components/lists";
-@import "./theme/components/badges";
-@import "./theme/components/fabs";
-@import "./theme/components/checkboxes";
-@import "./theme/components/buttons";
-@import "./theme/components/items";
+@use "theme/variables" as theme;
+@use "./theme/components/toolbar" as toolbar;
+@use "./theme/components/lists" as lists;
+@use "./theme/components/badges" as badges;
+@use "./theme/components/fabs" as fabs;
+@use "./theme/components/checkboxes" as checkboxes;
+@use "./theme/components/buttons" as buttons;
+@use "./theme/components/items" as items;
 
 /* Core CSS required for Ionic components to work properly */
 @import "@ionic/angular/css/core.css";
@@ -55,8 +55,8 @@
 html,
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #{$light} 0%, #{$gray-200} 100%);
-  color: $dark;
+  background: linear-gradient(135deg, #{theme.$light} 0%, #{theme.$gray-200} 100%);
+  color: theme.$dark;
 }
 
 ion-toast::part(message) {
